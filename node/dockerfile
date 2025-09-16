@@ -1,0 +1,11 @@
+FROM parity/substrate:latest
+
+WORKDIR /usr/src/app
+COPY ./chainspec/ft-chain-raw.json ./ft-chain-raw.json
+COPY ./scripts/start-node.sh ./start-node.sh
+
+RUN chmod +x start-node.sh
+
+EXPOSE 30333 9933 9944
+
+CMD ["./start-node.sh"]
