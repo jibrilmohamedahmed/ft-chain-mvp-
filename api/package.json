@@ -1,0 +1,10 @@
+{
+  "name": "ft-chain-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@polkadot/api": "^10.11.1",
+    "@polkadot/util-crypto": "^12.6.2",
+    "express": "^4.19.2"
+  }
+}
