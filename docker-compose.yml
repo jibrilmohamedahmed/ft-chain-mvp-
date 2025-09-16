@@ -1,0 +1,55 @@
+version: "3.8"
+services:
+  node1:
+    build: ./node
+    container_name: node1
+    command: ["./start-node.sh", "Node1"]
+    volumes:
+      - node1-data:/data
+    ports:
+      - "30333:30333"
+      - "9933:9933"
+      - "9944:9944"
+
+  node2:
+    build: ./node
+    container_name: node2
+    command: ["./start-node.sh", "Node2"]
+    volumes:
+      - node2-data:/data
+
+  node3:
+    build: ./node
+    container_name: node3
+    command: ["./start-node.sh", "Node3"]
+    volumes:
+      - node3-data:/data
+
+  node4:
+    build: ./node
+    container_name: node4
+    command: ["./start-node.sh", "Node4"]
+    volumes:
+      - node4-data:/data
+
+  node5:
+    build: ./node
+    container_name: node5
+    command: ["./start-node.sh", "Node5"]
+    volumes:
+      - node5-data:/data
+
+  api:
+    build: ./api
+    container_name: api
+    depends_on:
+      - node1
+    ports:
+      - "3000:3000"
+
+volumes:
+  node1-data:
+  node2-data:
+  node3-data:
+  node4-data:
+  node5-data:
